@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "echo 'No dev server needed - open index.html in browser'",
-    "build": "echo 'No build step required'",
+    "build": "",
     "start": "echo 'Static site - no server needed'"
   },
   "keywords": [
