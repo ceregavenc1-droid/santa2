@@ -1,0 +1,25 @@
+{
+  "name": "santaclaus",
+  "version": "1.0.0",
+  "description": "SANTA CLAUS - Christmas Magic on Solana Blockchain",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "dev": "echo 'No dev server needed - open index.html in browser'",
+    "build": "echo 'No build step required'",
+    "start": "echo 'Static site - no server needed'"
+  },
+  "keywords": [
+    "santa",
+    "christmas",
+    "crypto",
+    "solana",
+    "token"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.x"
+  }
+}
+

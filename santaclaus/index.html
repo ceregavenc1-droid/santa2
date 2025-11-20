@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SANTA CLAUS - Christmas Magic on Solana">
+    <title>SANTA CLAUS</title>
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://santaclaus.dev">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://santaclaus.dev">
+    <meta property="og:title" content="SANTA CLAUS - Christmas Magic on Solana">
+    <meta property="og:description" content="SANTA CLAUS - Christmas Magic on Solana">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://santaclaus.dev">
+    <meta property="twitter:title" content="SANTA CLAUS - Christmas Magic on Solana">
+    <meta property="twitter:description" content="SANTA CLAUS - Christmas Magic on Solana">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background with snowflakes -->
+    <div class="background-container">
+        <canvas id="snowflakesCanvas"></canvas>
+    </div>
+    
+    <!-- Crypto Ticker Bar -->
+    <div class="crypto-ticker-bar" id="cryptoTickerBar">
+        <div class="ticker-content" id="tickerContent">
+            <div class="ticker-item">
+                <span class="ticker-label">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container - New Asymmetric Layout -->
+    <div class="main-wrapper">
+        <!-- Left Sidebar Navigation -->
+        <aside class="sidebar-nav">
+            <div class="sidebar-inner">
+                <!-- Logo at top -->
+                <div class="sidebar-logo">
+                    <a href="#home" class="logo-link">
+                        <div class="logo-square">
+                            <svg class="santa-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="50" cy="50" r="40" fill="#FFE4B5"/>
+                                <path d="M20 30 L50 20 L80 30 L80 40 L20 40 Z" fill="#DC2626"/>
+                                <circle cx="50" cy="20" r="8" fill="#FFFFFF"/>
+                                <path d="M30 50 Q30 70, 50 75 Q70 70, 70 50 L70 60 Q50 80, 30 60 Z" fill="#FFFFFF"/>
+                                <circle cx="42" cy="45" r="4" fill="#000000"/>
+                                <circle cx="58" cy="45" r="4" fill="#000000"/>
+                                <circle cx="50" cy="52" r="3" fill="#FF6347"/>
+                            </svg>
+                        </div>
+                        <span class="logo-text">$SANTA</span>
+                    </a>
+                </div>
+
+                <!-- Vertical Navigation -->
+                <nav class="vertical-nav">
+                    <a href="#home" class="nav-item active">
+                        <span class="nav-dot"></span>
+                        <span class="nav-text">Home</span>
+                    </a>
+                    <a href="#hall-of-fame" class="nav-item">
+                        <span class="nav-dot"></span>
+                        <span class="nav-text">Legends</span>
+                    </a>
+                    <a href="#how-to-buy" class="nav-item">
+                        <span class="nav-dot"></span>
+                        <span class="nav-text">Purchase</span>
+                    </a>
+                    <a href="#roadmap" class="nav-item">
+                        <span class="nav-dot"></span>
+                        <span class="nav-text">Journey</span>
+                    </a>
+                    <a href="#about" class="nav-item">
+                        <span class="nav-dot"></span>
+                        <span class="nav-text">Story</span>
+                    </a>
+                    <a href="#santa-generator" class="nav-item">
+                        <span class="nav-dot"></span>
+                        <span class="nav-text">Magic</span>
+                    </a>
+                </nav>
+
+                <!-- Bottom Actions -->
+                <div class="sidebar-footer">
+                    <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle theme">
+                        <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <line x1="12" y1="1" x2="12" y2="3"/>
+                            <line x1="12" y1="21" x2="12" y2="23"/>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                            <line x1="1" y1="12" x2="3" y2="12"/>
+                            <line x1="21" y1="12" x2="23" y2="12"/>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                        </svg>
+                        <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                    </button>
+                    <button class="sidebar-buy-btn" id="buyNowBtn">Buy $SANTA</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="content-area">
+
+            <!-- Hero Section - Asymmetric Split Layout -->
+            <section id="home" class="hero-section">
+                <div class="hero-split">
+                    <!-- Left: Large Santa Visual -->
+                    <div class="hero-visual">
+                        <div class="visual-container" id="clickableSanta" style="cursor: pointer;">
+                            <div class="santa-orb">
+                                <svg class="santa-emblem-large" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="50" cy="50" r="40" fill="#FFE4B5"/>
+                                    <path d="M30 50 Q30 70, 50 75 Q70 70, 70 50 L70 60 Q50 80, 30 60 Z" fill="#FFFFFF"/>
+                                    <path d="M20 30 L50 20 L80 30 L80 40 L20 40 Z" fill="#DC2626"/>
+                                    <circle cx="50" cy="20" r="8" fill="#FFFFFF"/>
+                                    <circle cx="42" cy="45" r="4" fill="#000000"/>
+                                    <circle cx="58" cy="45" r="4" fill="#000000"/>
+                                    <circle cx="43" cy="44" r="1.5" fill="#FFFFFF"/>
+                                    <circle cx="59" cy="44" r="1.5" fill="#FFFFFF"/>
+                                    <circle cx="50" cy="52" r="3" fill="#FF6347"/>
+                                    <path d="M45 58 Q50 62, 55 58" stroke="#000000" stroke-width="2" fill="none"/>
+                                </svg>
+                                <div class="orb-rings">
+                                    <div class="ring ring-1"></div>
+                                    <div class="ring ring-2"></div>
+                                    <div class="ring ring-3"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Content -->
+                    <div class="hero-content">
+                        <div class="content-wrapper">
+                            <div class="badge">🎄 Christmas Token</div>
+                            <h1 class="hero-title">
+                                <span class="title-line">$SANTA</span>
+                                <span class="title-sub">Blockchain Magic</span>
+                            </h1>
+                            
+                            <div class="stats-row">
+                                <div class="stat-item">
+                                    <div class="stat-value" id="giftCounter">4</div>
+                                    <div class="stat-label">Gifts</div>
+                                </div>
+                                <div class="stat-divider"></div>
+                                <div class="stat-item">
+                                    <div class="stat-value">SOL</div>
+                                    <div class="stat-label">Network</div>
+                                </div>
+                                <div class="stat-divider"></div>
+                                <div class="stat-item">
+                                    <div class="stat-value">∞</div>
+                                    <div class="stat-label">Magic</div>
+                                </div>
+                            </div>
+
+                            <p class="hero-description">
+                                Experience the magic of Christmas on the blockchain. 
+                                $SANTA brings joy, community, and festive spirit to crypto.
+                            </p>
+
+                            <div class="action-group">
+                                <button class="cta-primary" id="buyNowBtnHero">
+                                    <span>Start Journey</span>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </button>
+                                <button class="cta-secondary" id="exploreBtn">
+                                    <span>Explore</span>
+                                </button>
+                            </div>
+
+                            <div class="quick-features">
+                                <div class="quick-feature">
+                                    <div class="qf-icon">⚡</div>
+                                    <span>Fast</span>
+                                </div>
+                                <div class="quick-feature">
+                                    <div class="qf-icon">🔒</div>
+                                    <span>Secure</span>
+                                </div>
+                                <div class="quick-feature">
+                                    <div class="qf-icon">🎁</div>
+                                    <span>Community</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <!-- Hall of Fame Section -->
+        <section id="hall-of-fame" class="content-section">
+            <div class="section-container">
+                <h2 class="section-title">Hall of Fame</h2>
+                <p class="section-subtitle">The legends who made crypto history</p>
+                
+                <div class="fame-grid">
+                    <div class="fame-card">
+                        <div class="fame-icon">👑</div>
+                        <h3>Bitcoin</h3>
+                        <p>The original cryptocurrency that started it all</p>
+                        <div class="fame-stats">
+                            <span>Market Cap: $1.2T</span>
+                        </div>
+                    </div>
+                    <div class="fame-card">
+                        <div class="fame-icon">💎</div>
+                        <h3>Ethereum</h3>
+                        <p>Smart contracts and decentralized applications</p>
+                        <div class="fame-stats">
+                            <span>Market Cap: $400B</span>
+                        </div>
+                    </div>
+                    <div class="fame-card">
+                        <div class="fame-icon">⚡</div>
+                        <h3>Solana</h3>
+                        <p>High-speed blockchain for the future</p>
+                        <div class="fame-stats">
+                            <span>Market Cap: $80B</span>
+                        </div>
+                    </div>
+                    <div class="fame-card featured">
+                        <div class="fame-icon">🎅</div>
+                        <h3>$SANTA</h3>
+                        <p>Christmas magic in crypto</p>
+                        <div class="fame-stats">
+                            <span>Join the Magic</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Buy Section -->
+        <section id="how-to-buy" class="content-section">
+            <div class="section-container">
+                <h2 class="section-title">How to Buy</h2>
+                <p class="section-subtitle">Get your $SANTA tokens in 3 simple steps</p>
+                
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Get a Solana wallet</h3>
+                        <p>Connect your Solana wallet (Phantom, Solflare, etc.) to get started</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Buy SOL from an exchange</h3>
+                        <p>Make sure you have SOL in your wallet to purchase $SANTA tokens</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Swap SOL for $SANTA</h3>
+                        <p>Swap your SOL for $SANTA tokens and join the Christmas magic</p>
+                    </div>
+                </div>
+
+                <div class="buy-info">
+                    <h4>Contract Address</h4>
+                    <div class="contract-address">
+                        <code id="contractCode">Загрузка...</code>
+                        <button class="copy-btn" id="copyContractBtn">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Roadmap Section -->
+        <section id="roadmap" class="content-section">
+            <div class="section-container">
+                <h2 class="section-title">Roadmap</h2>
+                <p class="section-subtitle">Our journey to spreading Christmas magic</p>
+                
+                <div class="roadmap-timeline">
+                    <div class="timeline-item completed">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Phase 1: Launch</h3>
+                            <p>Token launch on Solana blockchain</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item active">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Phase 2: Community Building</h3>
+                            <p>Growing our community and establishing presence</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Phase 3: Exchange Listings</h3>
+                            <p>Getting listed on major DEX and CEX platforms</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Phase 4: Ecosystem Expansion</h3>
+                            <p>Building partnerships and expanding utility</p>
+            </div>
+        </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Phase 5: Legend Status</h3>
+                            <p>Achieving recognition as a crypto legend</p>
+                        </div>
+        </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- In The Stars Section -->
+        <section id="in-the-stars" class="content-section">
+            <div class="section-container">
+                <h2 class="section-title">$SANTA Christmas Magic</h2>
+                <p class="section-subtitle">Spreading joy and Christmas spirit across the crypto universe</p>
+                
+                <div class="stars-grid">
+                    <div class="star-meme-card">
+                        <div class="star-meme-image">
+                            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#0a0a1a;stop-opacity:1" />
+                                        <stop offset="50%" style="stop-color:#1a0a2e;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+                                    </linearGradient>
+                                    <radialGradient id="globeGrad">
+                                        <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+                                        <stop offset="50%" style="stop-color:#1e40af;stop-opacity:0.8" />
+                                        <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:0.6" />
+                                    </radialGradient>
+                                    <filter id="glow1">
+                                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                        <feMerge>
+                                            <feMergeNode in="coloredBlur"/>
+                                            <feMergeNode in="SourceGraphic"/>
+                                        </feMerge>
+                                    </filter>
+                                </defs>
+                                <rect width="400" height="300" fill="url(#grad1)"/>
+                                
+                                <!-- Background stars -->
+                                <circle cx="80" cy="60" r="1" fill="#FFFFFF" opacity="0.6">
+                                    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle cx="320" cy="80" r="1.5" fill="#FFFFFF" opacity="0.5">
+                                    <animate attributeName="opacity" values="0.2;0.7;0.2" dur="2.5s" repeatCount="indefinite"/>
+                                </circle>
+                                
+                                <!-- Globe/Earth -->
+                                <g transform="translate(200, 150)">
+                                    <circle cx="0" cy="0" r="80" fill="url(#globeGrad)" opacity="0.8">
+                                        <animateTransform attributeName="transform" type="rotate" 
+                                            values="0 0 0;360 0 0" dur="20s" repeatCount="indefinite"/>
+                                </circle>
+                                    <!-- Continents -->
+                                    <path d="M-40 -20 Q-30 -30, -20 -25 Q-10 -30, 0 -25 Q10 -30, 20 -25 Q30 -30, 40 -20" 
+                                          stroke="#228B22" stroke-width="2" fill="none" opacity="0.7"/>
+                                    <path d="M-30 10 Q-20 5, -10 10 Q0 5, 10 10 Q20 5, 30 10" 
+                                          stroke="#228B22" stroke-width="2" fill="none" opacity="0.7"/>
+                                    <path d="M-20 30 Q-10 25, 0 30 Q10 25, 20 30" 
+                                          stroke="#228B22" stroke-width="2" fill="none" opacity="0.7"/>
+                                    
+                                    <!-- Delivery routes (animated lines) -->
+                                    <g filter="url(#glow1)">
+                                        <path d="M-50 -30 Q0 0, 50 30" stroke="#DC143C" stroke-width="2" fill="none" opacity="0.6" stroke-dasharray="5,3">
+                                    <animate attributeName="stroke-dashoffset" values="0;20" dur="2s" repeatCount="indefinite"/>
+                                            <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
+                                </path>
+                                        <path d="M-60 0 Q0 20, 60 0" stroke="#DC143C" stroke-width="2" fill="none" opacity="0.5" stroke-dasharray="5,3">
+                                            <animate attributeName="stroke-dashoffset" values="0;20" dur="2.5s" repeatCount="indefinite" begin="0.5s"/>
+                                            <animate attributeName="opacity" values="0.2;0.7;0.2" dur="2.5s" repeatCount="indefinite" begin="0.5s"/>
+                                    </path>
+                                        <path d="M-50 30 Q0 0, 50 -30" stroke="#DC143C" stroke-width="2" fill="none" opacity="0.6" stroke-dasharray="5,3">
+                                            <animate attributeName="stroke-dashoffset" values="0;20" dur="2.2s" repeatCount="indefinite" begin="1s"/>
+                                            <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.2s" repeatCount="indefinite" begin="1s"/>
+                                </path>
+                                    </g>
+                                    
+                                    <!-- Delivery points (gifts) -->
+                                    <g transform="translate(-50, -30)">
+                                        <circle cx="0" cy="0" r="6" fill="#DC143C" opacity="0.8">
+                                            <animate attributeName="r" values="4;8;4" dur="1.5s" repeatCount="indefinite"/>
+                                    </circle>
+                                        <rect x="-4" y="-3" width="8" height="6" fill="#228B22" rx="1" opacity="0.9"/>
+                                    </g>
+                                    <g transform="translate(50, 30)">
+                                        <circle cx="0" cy="0" r="6" fill="#DC143C" opacity="0.8">
+                                            <animate attributeName="r" values="4;8;4" dur="1.7s" repeatCount="indefinite" begin="0.3s"/>
+                                    </circle>
+                                        <rect x="-4" y="-3" width="8" height="6" fill="#228B22" rx="1" opacity="0.9"/>
+                                    </g>
+                                    <g transform="translate(-60, 0)">
+                                        <circle cx="0" cy="0" r="6" fill="#DC143C" opacity="0.8">
+                                            <animate attributeName="r" values="4;8;4" dur="1.6s" repeatCount="indefinite" begin="0.5s"/>
+                                        </circle>
+                                        <rect x="-4" y="-3" width="8" height="6" fill="#228B22" rx="1" opacity="0.9"/>
+                                    </g>
+                                </g>
+                                
+                                <!-- Santa icon in corner -->
+                                <g transform="translate(320, 60)">
+                                    <circle cx="0" cy="0" r="15" fill="#FFE4B5"/>
+                                    <path d="M-8 0 L0 -10 L8 0" fill="#DC143C"/>
+                                    <circle cx="-3" cy="-2" r="1" fill="#000"/>
+                                    <circle cx="3" cy="-2" r="1" fill="#000"/>
+                                    <circle cx="0" cy="1" r="1.5" fill="#FF6347">
+                                        <animate attributeName="r" values="1;2;1" dur="1s" repeatCount="indefinite"/>
+                                    </circle>
+                                </g>
+                                
+                                <!-- Text -->
+                                <text x="200" y="260" text-anchor="middle" fill="#DC143C" font-size="28" font-weight="900" filter="url(#glow1)">
+                                    <animate attributeName="font-size" values="26;30;26" dur="2s" repeatCount="indefinite"/>
+                                    WORLDWIDE DELIVERY
+                                </text>
+                            </svg>
+                        </div>
+                        <p class="star-meme-caption">$SANTA delivers joy worldwide 🌍</p>
+                    </div>
+                    
+                    <div class="star-meme-card">
+                        <div class="star-meme-image">
+                            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#0a1a2e;stop-opacity:1" />
+                                        <stop offset="50%" style="stop-color:#0a0a1a;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+                                    </linearGradient>
+                                    <radialGradient id="magicGlow2">
+                                        <stop offset="0%" style="stop-color:#DC143C;stop-opacity:1" />
+                                        <stop offset="50%" style="stop-color:#228B22;stop-opacity:0.7" />
+                                        <stop offset="100%" style="stop-color:#DC143C;stop-opacity:0" />
+                                    </radialGradient>
+                                    <filter id="glow2">
+                                        <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                                        <feMerge>
+                                            <feMergeNode in="coloredBlur"/>
+                                            <feMergeNode in="SourceGraphic"/>
+                                        </feMerge>
+                                    </filter>
+                                </defs>
+                                <rect width="400" height="300" fill="url(#grad2)"/>
+                                
+                                <!-- Snowflakes transforming into coins -->
+                                <g filter="url(#glow2)">
+                                    <!-- Snowflake 1 transforming -->
+                                    <g transform="translate(100, 80)">
+                                        <animateTransform attributeName="transform" type="translate" 
+                                            values="100,80; 100,150; 100,80" dur="4s" repeatCount="indefinite"/>
+                                        <!-- Snowflake shape -->
+                                        <path d="M0 -8 L2 -4 L6 -4 L3 -1 L4 4 L0 2 L-4 4 L-3 -1 L-6 -4 L-2 -4 Z" 
+                                              fill="#FFFFFF" opacity="1">
+                                            <animate attributeName="opacity" values="1;0;0" dur="4s" repeatCount="indefinite"/>
+                                            <animateTransform attributeName="transform" type="scale" 
+                                                values="1;0.3;0.3" dur="2s" repeatCount="indefinite"/>
+                                        </path>
+                                        <!-- Coin appearing -->
+                                        <circle cx="0" cy="0" r="12" fill="#DC143C" opacity="0">
+                                            <animate attributeName="opacity" values="0;1;1" dur="4s" repeatCount="indefinite" begin="1.5s"/>
+                                            <animate attributeName="r" values="8;12;12" dur="2s" repeatCount="indefinite" begin="1.5s"/>
+                                </circle>
+                                        <text x="0" y="5" text-anchor="middle" fill="#FFFFFF" font-size="10" font-weight="bold" opacity="0">
+                                            <animate attributeName="opacity" values="0;1;1" dur="4s" repeatCount="indefinite" begin="2s"/>
+                                            $SANTA
+                                        </text>
+                                    </g>
+                                    
+                                    <!-- Snowflake 2 transforming -->
+                                    <g transform="translate(200, 100)">
+                                        <animateTransform attributeName="transform" type="translate" 
+                                            values="200,100; 200,170; 200,100" dur="4.5s" repeatCount="indefinite" begin="0.5s"/>
+                                        <path d="M0 -8 L2 -4 L6 -4 L3 -1 L4 4 L0 2 L-4 4 L-3 -1 L-6 -4 L-2 -4 Z" 
+                                              fill="#FFFFFF" opacity="1">
+                                            <animate attributeName="opacity" values="1;0;0" dur="4.5s" repeatCount="indefinite" begin="0.5s"/>
+                                            <animateTransform attributeName="transform" type="scale" 
+                                                values="1;0.3;0.3" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+                                        </path>
+                                        <circle cx="0" cy="0" r="12" fill="#228B22" opacity="0">
+                                            <animate attributeName="opacity" values="0;1;1" dur="4.5s" repeatCount="indefinite" begin="2s"/>
+                                            <animate attributeName="r" values="8;12;12" dur="2s" repeatCount="indefinite" begin="2s"/>
+                                </circle>
+                                        <text x="0" y="5" text-anchor="middle" fill="#FFFFFF" font-size="10" font-weight="bold" opacity="0">
+                                            <animate attributeName="opacity" values="0;1;1" dur="4.5s" repeatCount="indefinite" begin="2.5s"/>
+                                            $SANTA
+                                        </text>
+                                    </g>
+                                    
+                                    <!-- Snowflake 3 transforming -->
+                                    <g transform="translate(300, 120)">
+                                        <animateTransform attributeName="transform" type="translate" 
+                                            values="300,120; 300,190; 300,120" dur="5s" repeatCount="indefinite" begin="1s"/>
+                                        <path d="M0 -8 L2 -4 L6 -4 L3 -1 L4 4 L0 2 L-4 4 L-3 -1 L-6 -4 L-2 -4 Z" 
+                                              fill="#FFFFFF" opacity="1">
+                                            <animate attributeName="opacity" values="1;0;0" dur="5s" repeatCount="indefinite" begin="1s"/>
+                                            <animateTransform attributeName="transform" type="scale" 
+                                                values="1;0.3;0.3" dur="2s" repeatCount="indefinite" begin="1s"/>
+                                    </path>
+                                        <circle cx="0" cy="0" r="12" fill="#DC143C" opacity="0">
+                                            <animate attributeName="opacity" values="0;1;1" dur="5s" repeatCount="indefinite" begin="2.5s"/>
+                                            <animate attributeName="r" values="8;12;12" dur="2s" repeatCount="indefinite" begin="2.5s"/>
+                                        </circle>
+                                        <text x="0" y="5" text-anchor="middle" fill="#FFFFFF" font-size="10" font-weight="bold" opacity="0">
+                                            <animate attributeName="opacity" values="0;1;1" dur="5s" repeatCount="indefinite" begin="3s"/>
+                                            $SANTA
+                                        </text>
+                                    </g>
+                                    
+                                    <!-- Magic particles spreading -->
+                                    <circle cx="150" cy="200" r="3" fill="#DC143C" opacity="0.7">
+                                        <animate attributeName="r" values="2;6;2" dur="2s" repeatCount="indefinite"/>
+                                        <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+                                        </circle>
+                                    <circle cx="250" cy="210" r="3" fill="#228B22" opacity="0.7">
+                                        <animate attributeName="r" values="2;6;2" dur="2.3s" repeatCount="indefinite" begin="0.3s"/>
+                                        <animate attributeName="opacity" values="0.5;1;0.5" dur="2.3s" repeatCount="indefinite" begin="0.3s"/>
+                                    </circle>
+                                </g>
+                                
+                                <!-- Text -->
+                                <text x="200" y="280" text-anchor="middle" fill="#DC143C" font-size="28" font-weight="900" filter="url(#glow2)">
+                                    <animate attributeName="font-size" values="26;30;26" dur="2s" repeatCount="indefinite"/>
+                                    MAGIC SPREADS
+                                </text>
+                            </svg>
+                        </div>
+                        <p class="star-meme-caption">$SANTA magic spreads everywhere ✨</p>
+                    </div>
+                    
+                    <div class="star-meme-card">
+                        <div class="star-meme-image">
+                            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#1a0a2e;stop-opacity:1" />
+                                        <stop offset="50%" style="stop-color:#0a0a1a;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+                                    </linearGradient>
+                                    <radialGradient id="spiritGlow3">
+                                        <stop offset="0%" style="stop-color:#DC143C;stop-opacity:1" />
+                                        <stop offset="50%" style="stop-color:#FFD700;stop-opacity:0.8" />
+                                        <stop offset="100%" style="stop-color:#DC143C;stop-opacity:0" />
+                                    </radialGradient>
+                                    <filter id="glow3">
+                                        <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                                        <feMerge>
+                                            <feMergeNode in="coloredBlur"/>
+                                            <feMergeNode in="SourceGraphic"/>
+                                        </feMerge>
+                                    </filter>
+                                </defs>
+                                <rect width="400" height="300" fill="url(#grad3)"/>
+                                
+                                <!-- People/Elves forming circle -->
+                                <g filter="url(#glow3)" transform="translate(200, 150)">
+                                    <!-- Central light source -->
+                                    <circle cx="0" cy="0" r="40" fill="url(#spiritGlow3)" opacity="0.6">
+                                        <animate attributeName="r" values="35;50;35" dur="3s" repeatCount="indefinite"/>
+                                        <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite"/>
+                                </circle>
+                                
+                                    <!-- Person 1 (top) -->
+                                    <g transform="translate(0, -80)">
+                                        <circle cx="0" cy="0" r="15" fill="#FFE4B5"/>
+                                        <path d="M-8 0 L0 -12 L8 0" fill="#DC143C"/>
+                                        <circle cx="-3" cy="-2" r="1" fill="#000"/>
+                                        <circle cx="3" cy="-2" r="1" fill="#000"/>
+                                        <circle cx="0" cy="1" r="1.5" fill="#FF6347"/>
+                                        <!-- Connection line -->
+                                        <line x1="0" y1="0" x2="0" y2="80" stroke="#DC143C" stroke-width="2" opacity="0.5" stroke-dasharray="3,3">
+                                            <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2s" repeatCount="indefinite"/>
+                                        </line>
+                                    </g>
+                                    
+                                    <!-- Person 2 (right) -->
+                                    <g transform="translate(70, -40)">
+                                        <circle cx="0" cy="0" r="12" fill="#FFE4B5"/>
+                                        <path d="M-6 0 L0 -10 L6 0" fill="#228B22"/>
+                                        <circle cx="-2" cy="-1" r="0.8" fill="#000"/>
+                                        <circle cx="2" cy="-1" r="0.8" fill="#000"/>
+                                        <circle cx="0" cy="1" r="1.2" fill="#FF6347"/>
+                                        <line x1="0" y1="0" x2="-70" y2="40" stroke="#228B22" stroke-width="2" opacity="0.5" stroke-dasharray="3,3">
+                                            <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2.2s" repeatCount="indefinite"/>
+                                        </line>
+                                    </g>
+                                    
+                                    <!-- Person 3 (bottom right) -->
+                                    <g transform="translate(60, 60)">
+                                        <circle cx="0" cy="0" r="12" fill="#FFE4B5"/>
+                                        <path d="M-6 0 L0 -10 L6 0" fill="#DC143C"/>
+                                        <circle cx="-2" cy="-1" r="0.8" fill="#000"/>
+                                        <circle cx="2" cy="-1" r="0.8" fill="#000"/>
+                                        <circle cx="0" cy="1" r="1.2" fill="#FF6347"/>
+                                        <line x1="0" y1="0" x2="-60" y2="-60" stroke="#DC143C" stroke-width="2" opacity="0.5" stroke-dasharray="3,3">
+                                            <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2.1s" repeatCount="indefinite"/>
+                                        </line>
+                                    </g>
+                                    
+                                    <!-- Person 4 (bottom left) -->
+                                    <g transform="translate(-60, 60)">
+                                        <circle cx="0" cy="0" r="12" fill="#FFE4B5"/>
+                                        <path d="M-6 0 L0 -10 L6 0" fill="#228B22"/>
+                                        <circle cx="-2" cy="-1" r="0.8" fill="#000"/>
+                                        <circle cx="2" cy="-1" r="0.8" fill="#000"/>
+                                        <circle cx="0" cy="1" r="1.2" fill="#FF6347"/>
+                                        <line x1="0" y1="0" x2="60" y2="-60" stroke="#228B22" stroke-width="2" opacity="0.5" stroke-dasharray="3,3">
+                                            <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2.3s" repeatCount="indefinite"/>
+                                        </line>
+                                    </g>
+                                    
+                                    <!-- Person 5 (left) -->
+                                    <g transform="translate(-70, -40)">
+                                        <circle cx="0" cy="0" r="12" fill="#FFE4B5"/>
+                                        <path d="M-6 0 L0 -10 L6 0" fill="#DC143C"/>
+                                        <circle cx="-2" cy="-1" r="0.8" fill="#000"/>
+                                        <circle cx="2" cy="-1" r="0.8" fill="#000"/>
+                                        <circle cx="0" cy="1" r="1.2" fill="#FF6347"/>
+                                        <line x1="0" y1="0" x2="70" y2="40" stroke="#DC143C" stroke-width="2" opacity="0.5" stroke-dasharray="3,3">
+                                            <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2.4s" repeatCount="indefinite"/>
+                                        </line>
+                                    </g>
+                                    
+                                    <!-- Connecting circle -->
+                                    <circle cx="0" cy="0" r="90" fill="none" stroke="#DC143C" stroke-width="2" opacity="0.3" stroke-dasharray="5,5">
+                                        <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3s" repeatCount="indefinite"/>
+                                    </circle>
+                                </g>
+                                
+                                <!-- Text -->
+                                <text x="200" y="280" text-anchor="middle" fill="#DC143C" font-size="28" font-weight="900" filter="url(#glow3)">
+                                    <animate attributeName="font-size" values="26;30;26" dur="2s" repeatCount="indefinite"/>
+                                    TOGETHER WE SHINE
+                                </text>
+                            </svg>
+                        </div>
+                        <p class="star-meme-caption">$SANTA community shines together ⭐</p>
+                    </div>
+                    
+                    <div class="star-meme-card">
+                        <div class="star-meme-image">
+                            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#2a0a3e;stop-opacity:1" />
+                                        <stop offset="50%" style="stop-color:#0a0a1a;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+                                    </linearGradient>
+                                    <radialGradient id="miracleGlow4">
+                                        <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                                        <stop offset="50%" style="stop-color:#DC143C;stop-opacity:0.8" />
+                                        <stop offset="100%" style="stop-color:#FFD700;stop-opacity:0" />
+                                    </radialGradient>
+                                    <filter id="glow4">
+                                        <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+                                        <feMerge>
+                                            <feMergeNode in="coloredBlur"/>
+                                            <feMergeNode in="SourceGraphic"/>
+                                        </feMerge>
+                                    </filter>
+                                </defs>
+                                <rect width="400" height="300" fill="url(#grad4)"/>
+                                
+                                <!-- Magical burst effect -->
+                                <g filter="url(#glow4)" transform="translate(200, 150)">
+                                    <!-- Central explosion of light -->
+                                    <circle cx="0" cy="0" r="50" fill="url(#miracleGlow4)" opacity="0.7">
+                                        <animate attributeName="r" values="40;70;40" dur="2s" repeatCount="indefinite"/>
+                                        <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2s" repeatCount="indefinite"/>
+                                </circle>
+                                    <circle cx="0" cy="0" r="30" fill="#FFD700" opacity="0.9">
+                                        <animate attributeName="r" values="25;40;25" dur="1.5s" repeatCount="indefinite"/>
+                                </circle>
+                                
+                                    <!-- Radiating rays -->
+                                    <g>
+                                        <line x1="0" y1="-60" x2="0" y2="-100" stroke="#FFD700" stroke-width="3" opacity="0.8">
+                                            <animate attributeName="opacity" values="0.4;1;0.4" dur="1.5s" repeatCount="indefinite"/>
+                                            <animateTransform attributeName="transform" type="rotate" 
+                                                values="0 0 0;360 0 0" dur="8s" repeatCount="indefinite"/>
+                                        </line>
+                                        <line x1="42" y1="-42" x2="70" y2="-70" stroke="#DC143C" stroke-width="3" opacity="0.7">
+                                            <animate attributeName="opacity" values="0.3;0.9;0.3" dur="1.7s" repeatCount="indefinite"/>
+                                            <animateTransform attributeName="transform" type="rotate" 
+                                                values="45 0 0;405 0 0" dur="8s" repeatCount="indefinite"/>
+                                        </line>
+                                        <line x1="60" y1="0" x2="100" y2="0" stroke="#228B22" stroke-width="3" opacity="0.7">
+                                            <animate attributeName="opacity" values="0.3;0.9;0.3" dur="1.6s" repeatCount="indefinite"/>
+                                            <animateTransform attributeName="transform" type="rotate" 
+                                                values="90 0 0;450 0 0" dur="8s" repeatCount="indefinite"/>
+                                        </line>
+                                        <line x1="42" y1="42" x2="70" y2="70" stroke="#DC143C" stroke-width="3" opacity="0.7">
+                                            <animate attributeName="opacity" values="0.3;0.9;0.3" dur="1.8s" repeatCount="indefinite"/>
+                                            <animateTransform attributeName="transform" type="rotate" 
+                                                values="135 0 0;495 0 0" dur="8s" repeatCount="indefinite"/>
+                                        </line>
+                                        <line x1="0" y1="60" x2="0" y2="100" stroke="#FFD700" stroke-width="3" opacity="0.8">
+                                            <animate attributeName="opacity" values="0.4;1;0.4" dur="1.5s" repeatCount="indefinite"/>
+                                            <animateTransform attributeName="transform" type="rotate" 
+                                                values="180 0 0;540 0 0" dur="8s" repeatCount="indefinite"/>
+                                        </line>
+                                        <line x1="-42" y1="42" x2="-70" y2="70" stroke="#DC143C" stroke-width="3" opacity="0.7">
+                                            <animate attributeName="opacity" values="0.3;0.9;0.3" dur="1.7s" repeatCount="indefinite"/>
+                                            <animateTransform attributeName="transform" type="rotate" 
+                                                values="225 0 0;585 0 0" dur="8s" repeatCount="indefinite"/>
+                                        </line>
+                                        <line x1="-60" y1="0" x2="-100" y2="0" stroke="#228B22" stroke-width="3" opacity="0.7">
+                                            <animate attributeName="opacity" values="0.3;0.9;0.3" dur="1.6s" repeatCount="indefinite"/>
+                                            <animateTransform attributeName="transform" type="rotate" 
+                                                values="270 0 0;630 0 0" dur="8s" repeatCount="indefinite"/>
+                                        </line>
+                                        <line x1="-42" y1="-42" x2="-70" y2="-70" stroke="#DC143C" stroke-width="3" opacity="0.7">
+                                            <animate attributeName="opacity" values="0.3;0.9;0.3" dur="1.8s" repeatCount="indefinite"/>
+                                            <animateTransform attributeName="transform" type="rotate" 
+                                                values="315 0 0;675 0 0" dur="8s" repeatCount="indefinite"/>
+                                        </line>
+                                    </g>
+                                    
+                                    <!-- Sparkles around -->
+                                    <g>
+                                        <circle cx="80" cy="-80" r="4" fill="#FFD700" opacity="0.8">
+                                            <animate attributeName="r" values="2;6;2" dur="1.5s" repeatCount="indefinite"/>
+                                            <animate attributeName="opacity" values="0.4;1;0.4" dur="1.5s" repeatCount="indefinite"/>
+                                        </circle>
+                                        <circle cx="-80" cy="80" r="4" fill="#DC143C" opacity="0.8">
+                                            <animate attributeName="r" values="2;6;2" dur="1.7s" repeatCount="indefinite" begin="0.2s"/>
+                                            <animate attributeName="opacity" values="0.4;1;0.4" dur="1.7s" repeatCount="indefinite" begin="0.2s"/>
+                                        </circle>
+                                        <circle cx="90" cy="60" r="3" fill="#228B22" opacity="0.7">
+                                            <animate attributeName="r" values="2;5;2" dur="1.6s" repeatCount="indefinite" begin="0.4s"/>
+                                            <animate attributeName="opacity" values="0.3;0.9;0.3" dur="1.6s" repeatCount="indefinite" begin="0.4s"/>
+                                        </circle>
+                                        <circle cx="-90" cy="-60" r="3" fill="#FFD700" opacity="0.7">
+                                            <animate attributeName="r" values="2;5;2" dur="1.8s" repeatCount="indefinite" begin="0.6s"/>
+                                            <animate attributeName="opacity" values="0.3;0.9;0.3" dur="1.8s" repeatCount="indefinite" begin="0.6s"/>
+                                        </circle>
+                                    </g>
+                                    
+                                    <!-- Central star -->
+                                    <path d="M0 -30 L8 -15 L25 -15 L12 -5 L15 15 L0 8 L-15 15 L-12 -5 L-25 -15 L-8 -15 Z" 
+                                          fill="#FFD700" opacity="1">
+                                        <animateTransform attributeName="transform" type="rotate" 
+                                            values="0 0 0;360 0 0" dur="10s" repeatCount="indefinite"/>
+                                        </path>
+                                </g>
+                                
+                                <!-- Text -->
+                                <text x="200" y="270" text-anchor="middle" fill="#FFD700" font-size="30" font-weight="900" filter="url(#glow4)">
+                                    <animate attributeName="font-size" values="28;34;28" dur="2s" repeatCount="indefinite"/>
+                                    CHRISTMAS MIRACLE
+                                </text>
+                            </svg>
+                        </div>
+                        <p class="star-meme-caption">$SANTA creates miracles ✨</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="content-section">
+            <div class="section-container">
+                <h2 class="section-title">About $SANTA</h2>
+                <p class="section-subtitle">Christmas magic in cryptocurrency</p>
+                
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Our Mission</h3>
+                        <p>$SANTA is not just another token. We're bringing Christmas magic to crypto, spreading joy and holiday spirit across the blockchain.</p>
+                        <p>Our goal is to create a community-driven project that combines the best aspects of crypto legends while bringing the warmth and magic of Christmas to the crypto space.</p>
+                        
+                        <h3>Why $SANTA?</h3>
+                        <ul class="about-list">
+                            <li>🎄 Built on Solana for speed and scalability</li>
+                            <li>🎁 Community-first approach</li>
+                            <li>🎅 Transparent and fair launch</li>
+                            <li>❄️ Clear roadmap to success</li>
+                            <li>🌟 Spreading Christmas magic</li>
+                        </ul>
+        </div>
+
+                    <div class="about-stats">
+                        <div class="stat-box">
+                            <div class="stat-value">100%</div>
+                            <div class="stat-label">Community Owned</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-value">0%</div>
+                            <div class="stat-label">Team Allocation</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-value">∞</div>
+                            <div class="stat-label">Potential</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Santa Generator Section -->
+        <section id="santa-generator" class="content-section">
+            <div class="section-container">
+                <h2 class="section-title">What Christmas Spirit Are You?</h2>
+                <p class="section-subtitle">Discover your inner Christmas identity</p>
+                
+                <div class="generator-container">
+                    <div class="generator-display" id="generatorDisplay">
+                        <div class="generator-icon" id="generatorIcon">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M50 10 L61 38 L92 38 L67 56 L78 84 L50 66 L22 84 L33 56 L8 38 L39 38 Z" fill="#FFD700"/>
+                            </svg>
+                        </div>
+                        <div class="generator-result" id="generatorResult">
+                            <h3 id="resultTitle">Click to discover!</h3>
+                            <p id="resultDescription">Press the button below to find out your Christmas spirit</p>
+                        </div>
+                    </div>
+                    
+                    <button class="generator-btn" id="generatorBtn">
+                        <span class="btn-text">Generate My Christmas Spirit</span>
+                        <span class="btn-icon">🎄</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-circle small">
+                        <svg class="santa-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Santa's face -->
+                            <circle cx="50" cy="50" r="40" fill="#FFE4B5"/>
+                            <!-- Hat -->
+                            <path d="M20 30 L50 20 L80 30 L80 40 L20 40 Z" fill="#C41E3A"/>
+                            <circle cx="50" cy="20" r="8" fill="#FFFFFF"/>
+                            <!-- Beard -->
+                            <path d="M30 50 Q30 70, 50 75 Q70 70, 70 50 L70 60 Q50 80, 30 60 Z" fill="#FFFFFF"/>
+                            <!-- Eyes -->
+                            <circle cx="42" cy="45" r="4" fill="#000000"/>
+                            <circle cx="58" cy="45" r="4" fill="#000000"/>
+                            <!-- Nose -->
+                            <circle cx="50" cy="52" r="3" fill="#FF6347"/>
+                        </svg>
+                    </div>
+                    <span>$SANTA</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#hall-of-fame">Hall of Fame</a>
+                    <a href="#how-to-buy">How to Buy</a>
+                    <a href="#roadmap">Roadmap</a>
+                    <a href="#about">About</a>
+                    <a href="#santa-generator">Generator</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#" id="twitterLink" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <svg class="social-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/>
+                        </svg>
+                        <span>X</span>
+                    </a>
+                    <a href="#" id="telegramLink" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <svg class="social-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/>
+                        </svg>
+                        <span>Community</span>
+                    </a>
+                    <a href="#" id="dexscreenerLink" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <svg class="social-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="18" width="4" height="4" fill="currentColor"/>
+                            <rect x="9" y="14" width="4" height="8" fill="currentColor"/>
+                            <rect x="15" y="10" width="4" height="12" fill="currentColor"/>
+                        </svg>
+                        <span>Dexscreener</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>2025 $SANTA All rights reserved.</p>
+                <p>Not financial advice. For entertainment purposes only.</p>
+            </div>
+        </footer>
+        </div>
+        <!-- End content-area -->
+    </div>
+    <!-- End main-wrapper -->
+
+    <script src="scripts/config.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/snowflakes.js"></script>
+    <script>
+        // Обновление URL из конфигурации
+        (function() {
+            if (typeof CONFIG !== 'undefined') {
+                // Обновление базового URL в мета-тегах
+                const baseUrl = CONFIG.BASE_URL || window.location.origin;
+                
+                // Обновление canonical URL
+                const canonicalLink = document.querySelector('link[rel="canonical"]');
+                if (canonicalLink) {
+                    canonicalLink.href = baseUrl;
+                }
+                
+                // Обновление Open Graph URL
+                const ogUrl = document.querySelector('meta[property="og:url"]');
+                if (ogUrl) {
+                    ogUrl.content = baseUrl;
+                }
+                
+                // Обновление Twitter URL
+                const twitterUrl = document.querySelector('meta[property="twitter:url"]');
+                if (twitterUrl) {
+                    twitterUrl.content = baseUrl;
+                }
+                
+                // Обновление социальных ссылок
+                const twitterLink = document.getElementById('twitterLink');
+                if (twitterLink && CONFIG.SOCIAL && CONFIG.SOCIAL.TWITTER) {
+                    twitterLink.href = CONFIG.SOCIAL.TWITTER;
+                }
+                
+                const telegramLink = document.getElementById('telegramLink');
+                if (telegramLink && CONFIG.SOCIAL && CONFIG.SOCIAL.TELEGRAM) {
+                    telegramLink.href = CONFIG.SOCIAL.TELEGRAM;
+                }
+                
+                const dexscreenerLink = document.getElementById('dexscreenerLink');
+                if (dexscreenerLink && CONFIG.SOCIAL && CONFIG.SOCIAL.DEXSCREENER) {
+                    dexscreenerLink.href = CONFIG.SOCIAL.DEXSCREENER;
+                }
+                
+                // Обновление адреса контракта
+                const contractCode = document.getElementById('contractCode');
+                if (contractCode && CONFIG.CONTRACT_ADDRESS) {
+                    contractCode.textContent = CONFIG.CONTRACT_ADDRESS;
+                }
+            }
+        })();
+        
+        // Santa click counter - Shared across all users (Simple & Fast)
+        (function() {
+            let clickCount = 4; // Default value
+            let isInitialized = false;
+            let isUpdating = false; // Prevent multiple simultaneous API calls
+            
+            // Load count from API (only once on page load)
+            function loadCounter() {
+                fetch(`${window.location.origin}/api/counter-simple`)
+                    .then(response => response.ok ? response.json() : null)
+                    .then(data => {
+                        if (data && data.count) {
+                            clickCount = data.count;
+                            updateCounter();
+                        }
+                    })
+                    .catch(() => {
+                        // Use default value if API fails
+                        updateCounter();
+                    });
+            }
+            
+            // Update counter display
+            function updateCounter() {
+                const counterElement = document.getElementById('giftCounter');
+                if (counterElement) {
+                    counterElement.textContent = clickCount;
+                }
+            }
+            
+            // Increment counter - instant UI, background API
+            function incrementCounter() {
+                // 1. Update UI immediately (no waiting - instant response!)
+                clickCount++;
+                updateCounter();
+                
+                // 2. Update server in background (fire and forget - don't block)
+                // Send request but don't wait for response
+                fetch(`${window.location.origin}/api/counter-simple`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                })
+                .then(response => response.ok ? response.json() : null)
+                .then(data => {
+                    if (data && data.count) {
+                        // Sync with server value (in case of race conditions)
+                        clickCount = data.count;
+                        updateCounter();
+                    }
+                })
+                .catch(() => {
+                    // Silently fail - UI already updated optimistically
+                });
+            }
+            
+            function playChristmasSound() {
+                // Play Christmas sound in background (non-blocking)
+                try {
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    // Christmas melody: Jingle Bells notes
+                    const frequencies = [523.25, 523.25, 523.25, 523.25, 659.25, 659.25, 523.25];
+                    const duration = 0.3;
+                    const now = audioContext.currentTime;
+                    
+                    frequencies.forEach((freq, index) => {
+                        const oscillator = audioContext.createOscillator();
+                        const gainNode = audioContext.createGain();
+                        
+                        oscillator.connect(gainNode);
+                        gainNode.connect(audioContext.destination);
+                        
+                        oscillator.type = 'sine';
+                        oscillator.frequency.setValueAtTime(freq, now);
+                        
+                        gainNode.gain.setValueAtTime(0, now);
+                        gainNode.gain.linearRampToValueAtTime(0.1, now + 0.02);
+                        gainNode.gain.exponentialRampToValueAtTime(0.01, now + duration + (index * 0.1));
+                        
+                        oscillator.start(now + (index * 0.1));
+                        oscillator.stop(now + duration + (index * 0.1));
+                    });
+                } catch (error) {
+                    // Silently fail
+                }
+            }
+            
+            function handleSantaClick(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Instant increment (no async/await - no blocking!)
+                incrementCounter();
+                
+                // Play sound (non-blocking)
+                playChristmasSound();
+                
+                // Add visual feedback - sinking animation
+                const santa = document.getElementById('clickableSanta');
+                if (santa) {
+                    // Remove any existing animation class
+                    santa.classList.remove('clicked');
+                    
+                    // Force reflow to restart animation
+                    void santa.offsetWidth;
+                    
+                    // Add animation class
+                    santa.classList.add('clicked');
+                    
+                    console.log('Animation class added');
+                    
+                    // Remove class after animation completes (500ms animation)
+                    setTimeout(() => {
+                        santa.classList.remove('clicked');
+                        console.log('Animation class removed');
+                    }, 500);
+                }
+            }
+            
+            function initSantaCounter() {
+                // Prevent multiple initializations
+                if (isInitialized) {
+                    return;
+                }
+                
+                const santa = document.getElementById('clickableSanta');
+                if (santa) {
+                    // Load counter from API
+                    loadCounter();
+                    
+                    // Add click handler only once
+                    santa.addEventListener('click', handleSantaClick);
+                    
+                    isInitialized = true;
+                    console.log('Santa counter initialized');
+                }
+            }
+            
+            // Initialize when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initSantaCounter);
+            } else {
+                initSantaCounter();
+            }
+            
+            window.addEventListener('load', function() {
+                setTimeout(initSantaCounter, 100);
+            });
+        })();
+        
+        // NAVIGATION - Loaded LAST to override everything
+        console.log('=== NAVIGATION SCRIPT LOADING ===');
+        
+        // Make scrollToSection global
+        window.scrollToSection = function(sectionId) {
+            console.log('scrollToSection called with:', sectionId);
+            const section = document.getElementById(sectionId);
+            
+            if (!section) {
+                console.error('Section not found:', sectionId);
+                return;
+            }
+            
+            const sidebar = document.querySelector('.sidebar-nav');
+            const sidebarHeight = sidebar ? sidebar.offsetHeight : 0;
+            
+            console.log('Section offsetTop:', section.offsetTop);
+            console.log('Sidebar height:', sidebarHeight);
+            console.log('Current scroll:', window.pageYOffset);
+            
+            // Calculate target position (account for ticker bar)
+            const targetPosition = section.offsetTop - 100;
+            console.log('Target scroll position:', targetPosition);
+            
+            // Try ALL scroll methods simultaneously
+            try {
+                window.scrollTo(0, targetPosition);
+                console.log('Method 1: window.scrollTo executed');
+            } catch(e) {
+                console.error('Method 1 failed:', e);
+            }
+            
+            try {
+                document.documentElement.scrollTop = targetPosition;
+                console.log('Method 2: documentElement.scrollTop set');
+            } catch(e) {
+                console.error('Method 2 failed:', e);
+            }
+            
+            try {
+                document.body.scrollTop = targetPosition;
+                console.log('Method 3: body.scrollTop set');
+            } catch(e) {
+                console.error('Method 3 failed:', e);
+            }
+            
+            try {
+                window.scroll({
+                    top: targetPosition,
+                    left: 0,
+                    behavior: 'auto'
+                });
+                console.log('Method 4: window.scroll executed');
+            } catch(e) {
+                console.error('Method 4 failed:', e);
+            }
+            
+            // Verify and use scrollIntoView if needed
+            setTimeout(function() {
+                const currentScroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+                console.log('Current scroll position:', currentScroll);
+                console.log('Target was:', targetPosition);
+                console.log('Difference:', Math.abs(currentScroll - targetPosition));
+                
+                if (Math.abs(currentScroll - targetPosition) > 50) {
+                    console.log('Direct scroll failed, using scrollIntoView...');
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    console.log('Scroll successful!');
+                }
+            }, 100);
+        };
+        
+        function setupNav() {
+            console.log('=== Setting up navigation ===');
+            
+            // Find ALL links
+            const links = document.querySelectorAll('a.nav-item, a.nav-link, .footer-links a[href^="#"]');
+            console.log('Total links found:', links.length);
+            
+            links.forEach(function(link, i) {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    const id = href.substring(1);
+                    const loc = link.closest('header') ? 'HEADER' : link.closest('footer') ? 'FOOTER' : 'OTHER';
+                    
+                    console.log('Link', i + ':', href, loc);
+                    
+                    // Clear and set onclick
+                    link.onclick = function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        e.stopImmediatePropagation();
+                        
+                        console.log('=== CLICK ===');
+                        console.log('Href:', href);
+                        console.log('Section ID:', id);
+                        console.log('Location:', loc);
+                        
+                        // Update active
+                        links.forEach(function(l) {
+                            l.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                        
+                        // Scroll - call directly
+                        console.log('Calling scrollToSection...');
+                        window.scrollToSection(id);
+                        
+                        return false;
+                    };
+                }
+            });
+            
+            console.log('=== Navigation ready ===');
+        }
+        
+        // Run after all scripts
+        setTimeout(function() {
+            setupNav();
+        }, 100);
+        
+        window.addEventListener('load', function() {
+            setTimeout(setupNav, 200);
+        });
+    </script>
+
+    <!-- Santa Generator Script -->
+    <script>
+        (function() {
+            const christmasSpirits = [
+                {
+                    title: "The Legendary Santa 🎅",
+                    description: "You're a true legend! Like Bitcoin, you've stood the test of time and inspired generations. Your impact is eternal and your legacy brings joy to all!",
+                    emoji: "🎅"
+                },
+                {
+                    title: "The Innovation Elf 🚀",
+                    description: "You're a pioneer! Like Ethereum, you bring innovation and smart solutions. You're always ahead of the curve and pushing boundaries with Christmas magic!",
+                    emoji: "🚀"
+                },
+                {
+                    title: "The Speed Reindeer ⚡",
+                    description: "You're lightning fast! Like Solana, you move at incredible speed and efficiency. You deliver gifts quickly and never slow down!",
+                    emoji: "⚡"
+                },
+                {
+                    title: "The Rising Star 🌟",
+                    description: "You're on the rise! You have massive potential and are building something amazing. The future is bright and full of Christmas joy for you!",
+                    emoji: "🌟"
+                },
+                {
+                    title: "The Community Spirit 👥",
+                    description: "You're all about community! You bring people together and create amazing connections. Your power comes from unity and Christmas togetherness!",
+                    emoji: "👥"
+                },
+                {
+                    title: "The Golden Gift 💎",
+                    description: "You're pure gold! Valuable, rare, and always shining. You're a true gem in the crypto universe, spreading Christmas joy everywhere!",
+                    emoji: "💎"
+                },
+                {
+                    title: "The Snowflake ❄️",
+                    description: "You're unique and beautiful! Like a snowflake, you're one of a kind. You bring the magic of winter and Christmas to everyone around you!",
+                    emoji: "❄️"
+                },
+                {
+                    title: "The SANTA Spirit 🎄",
+                    description: "You ARE the SANTA spirit! You embody everything we stand for - innovation, community, and spreading Christmas magic. You're the star of the holidays!",
+                    emoji: "🎄"
+                }
+            ];
+
+            const generatorBtn = document.getElementById('generatorBtn');
+            const generatorDisplay = document.getElementById('generatorDisplay');
+            const generatorIcon = document.getElementById('generatorIcon');
+            const resultTitle = document.getElementById('resultTitle');
+            const resultDescription = document.getElementById('resultDescription');
+            let isGenerating = false;
+
+            function generateChristmasSpirit() {
+                if (isGenerating) return;
+                isGenerating = true;
+
+                // Add spinning animation
+                generatorDisplay.classList.add('generating');
+                generatorIcon.style.animation = 'spin 1s linear infinite';
+                resultTitle.textContent = 'Generating...';
+                resultDescription.textContent = 'Discovering your Christmas spirit...';
+
+                // Disable button
+                generatorBtn.disabled = true;
+                generatorBtn.classList.add('generating');
+
+                // Generate after animation
+                setTimeout(() => {
+                    const randomSpirit = christmasSpirits[Math.floor(Math.random() * christmasSpirits.length)];
+                    
+                    // Remove spinning
+                    generatorIcon.style.animation = '';
+                    generatorDisplay.classList.remove('generating');
+                    generatorDisplay.classList.add('result-revealed');
+
+                    // Update content with fade effect
+                    setTimeout(() => {
+                        resultTitle.innerHTML = `${randomSpirit.emoji} ${randomSpirit.title}`;
+                        resultDescription.textContent = randomSpirit.description;
+                        
+                        // Add confetti effect
+                        createConfetti();
+                    }, 200);
+
+                    // Re-enable button
+                    setTimeout(() => {
+                        generatorBtn.disabled = false;
+                        generatorBtn.classList.remove('generating');
+                        isGenerating = false;
+                    }, 1000);
+                }, 1500);
+            }
+
+            function createConfetti() {
+                const colors = ['#DC143C', '#228B22', '#FFD700', '#FF6347', '#FFFFFF'];
+                for (let i = 0; i < 30; i++) {
+                    setTimeout(() => {
+                        const confetti = document.createElement('div');
+                        confetti.className = 'confetti';
+                        confetti.style.left = Math.random() * 100 + '%';
+                        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                        confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                        generatorDisplay.appendChild(confetti);
+                        
+                        setTimeout(() => confetti.remove(), 2000);
+                    }, i * 50);
+                }
+            }
+
+            if (generatorBtn) {
+                generatorBtn.addEventListener('click', generateChristmasSpirit);
+            }
+        })();
+    </script>
+
+    <!-- Crypto Ticker Script -->
+    <script>
+        (function() {
+            const tickerContent = document.getElementById('tickerContent');
+            if (!tickerContent) return;
+
+            // Top 15 cryptocurrencies by market cap
+            const cryptoIds = [
+                'bitcoin', 'ethereum', 'solana', 'binancecoin', 'cardano',
+                'ripple', 'polkadot', 'dogecoin', 'avalanche-2', 'chainlink',
+                'polygon', 'litecoin', 'uniswap', 'bitcoin-cash', 'stellar'
+            ];
+
+            const cryptoNames = {
+                'bitcoin': 'BTC',
+                'ethereum': 'ETH',
+                'solana': 'SOL',
+                'binancecoin': 'BNB',
+                'cardano': 'ADA',
+                'ripple': 'XRP',
+                'polkadot': 'DOT',
+                'dogecoin': 'DOGE',
+                'avalanche-2': 'AVAX',
+                'chainlink': 'LINK',
+                'polygon': 'MATIC',
+                'litecoin': 'LTC',
+                'uniswap': 'UNI',
+                'bitcoin-cash': 'BCH',
+                'stellar': 'XLM'
+            };
+
+            async function fetchCryptoPrices() {
+                try {
+                    const ids = cryptoIds.join(',');
+                    const response = await fetch(
+                        `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`,
+                        { 
+                            cache: 'no-cache',
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        }
+                    );
+
+                    if (!response.ok) {
+                        throw new Error('API request failed');
+                    }
+
+                    const data = await response.json();
+                    return data;
+                } catch (error) {
+                    console.error('Failed to fetch crypto prices:', error);
+                    return null;
+                }
+            }
+
+            function formatPrice(price) {
+                if (price < 1) {
+                    return '$' + price.toFixed(4);
+                } else if (price < 1000) {
+                    return '$' + price.toFixed(2);
+                } else {
+                    return '$' + (price / 1000).toFixed(2) + 'K';
+                }
+            }
+
+            function formatChange(change) {
+                const sign = change >= 0 ? '+' : '';
+                const color = change >= 0 ? '#00ff88' : '#ff4444';
+                return `<span style="color: ${color}">${sign}${change.toFixed(2)}%</span>`;
+            }
+
+            function createTickerItems(data) {
+                if (!data) {
+                    tickerContent.innerHTML = '<div class="ticker-item"><span class="ticker-label">Unable to load prices</span></div>';
+                    return;
+                }
+
+                const items = [];
+                cryptoIds.forEach(id => {
+                    const crypto = data[id];
+                    if (crypto && crypto.usd) {
+                        const symbol = cryptoNames[id] || id.toUpperCase();
+                        const price = formatPrice(crypto.usd);
+                        const change = crypto.usd_24h_change || 0;
+                        
+                        items.push(`
+                            <div class="ticker-item">
+                                <span class="ticker-symbol">${symbol}</span>
+                                <span class="ticker-price">${price}</span>
+                                <span class="ticker-change">${formatChange(change)}</span>
+                            </div>
+                        `);
+                    }
+                });
+
+                // Duplicate items for seamless loop
+                tickerContent.innerHTML = items.join('') + items.join('');
+            }
+
+            async function updateTicker() {
+                const data = await fetchCryptoPrices();
+                createTickerItems(data);
+            }
+
+            // Initial load
+            updateTicker();
+
+            // Update every 60 seconds
+            setInterval(updateTicker, 60000);
+        })();
+    </script>
+
+</body>
+</html>
+
